@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-rc
+  labels:
+    app: myapp
+    type: back-end
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: back-end
+  template:
+    metadata:
+      name: myapp-rc
+      labels:
+        app: myapp
+        type: back-end
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:1.27.0
+
+      - name: redis-container
+        image: redis
+

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-pod-configmap-env
+spec:
+  containers:
+  - name: redis-container
+    image: redis
+    env:
+      - name: PROD
+        valueFrom:
+          configMapKeyRef:
+            name: redis-configmap-env
+            key: prodenv
+      - name: STAG
+        valueFrom:
+          configMapKeyRef:
+            name: redis-configmap-env
+            key: stagenv
+  restartPolicy: Never

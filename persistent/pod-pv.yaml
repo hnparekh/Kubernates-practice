@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+      - mountPath: /etc/xyz_data/
+        name: myvol
+  volumes:
+    - name: myvol
+      persistentVolumeClaim:
+        claimName: pvc2

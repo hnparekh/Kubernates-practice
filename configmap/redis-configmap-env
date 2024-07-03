@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  prodenv: prodenvvalue
+  stagenv: stageenvvalue
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: redis-configmap-env
